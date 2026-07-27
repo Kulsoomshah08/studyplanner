@@ -4,7 +4,7 @@
 StudyPlanner AI is a web app that helps students manage study tasks, track progress, and get instant help from an AI assistant. It is designed to make studying more organized and productive.
 
 ## 🌐 Live Demo
-Live App: https://your-live-link.com
+Live App: [](https://ai-study-planner-web-0ff0.bolt.host/#home)
 
 ## ✨ Features
 - Add and manage study tasks

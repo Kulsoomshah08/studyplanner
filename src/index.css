@@ -4,6 +4,7 @@
 
 :root {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
 }
 
 html {
@@ -14,9 +15,10 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #070b16;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - dark */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -25,11 +27,17 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bfdbfe;
+  background: #232d52;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #93c5fd;
+  background: #2d3a66;
+}
+
+/* Date picker icon visibility on dark */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -58,6 +66,11 @@ body {
   100% { opacity: 0.2; transform: translateY(0); }
 }
 
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -10px); }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.4s ease-out both;
 }
@@ -69,4 +82,7 @@ body {
 }
 .animate-typing {
   animation: typing 1.2s infinite;
+}
+.animate-float-glow {
+  animation: floatGlow 8s ease-in-out infinite;
 }

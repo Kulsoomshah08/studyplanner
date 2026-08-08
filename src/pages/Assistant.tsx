@@ -83,25 +83,25 @@ export default function Assistant() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
       <div className="flex flex-col items-center text-center mb-6">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-glow mb-4">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-accent-600 flex items-center justify-center shadow-glow mb-4">
           <Sparkles className="w-7 h-7 text-white" />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">AI Study Assistant</h1>
-        <p className="text-sm text-slate-500 mt-1.5 max-w-md">
+        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">AI Study Assistant</h1>
+        <p className="text-sm text-slate-400 mt-1.5 max-w-md">
           Ask me anything about studying - techniques, exams, focus, memory, and more.
         </p>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-card overflow-hidden flex flex-col h-[62vh] min-h-[480px] animate-scale-in">
+      <div className="bg-ink-900 rounded-3xl border border-ink-700/60 shadow-card overflow-hidden flex flex-col h-[62vh] min-h-[480px] animate-scale-in">
         {/* Header bar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-gradient-to-r from-brand-50/60 to-white">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-ink-800 bg-gradient-to-r from-brand-500/10 to-transparent">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center">
-              <MessageSquare className="w-4 h-4 text-brand-700" />
+            <div className="w-8 h-8 rounded-lg bg-brand-500/15 flex items-center justify-center">
+              <MessageSquare className="w-4 h-4 text-brand-300" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-slate-800 leading-none">Study Chat</p>
-              <p className="text-xs text-emerald-600 mt-1 flex items-center gap-1">
+              <p className="text-sm font-semibold text-white leading-none">Study Chat</p>
+              <p className="text-xs text-emerald-400 mt-1 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Online
               </p>
@@ -109,7 +109,7 @@ export default function Assistant() {
           </div>
           <button
             onClick={resetChat}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-brand-600 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-brand-300 px-3 py-1.5 rounded-lg hover:bg-ink-800 transition-colors"
             title="Start a new chat"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export default function Assistant() {
         </div>
 
         {/* Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-slate-50/40">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-ink-950/40">
           {messages.map((msg) => (
             <div
               key={msg.id}
@@ -127,12 +127,12 @@ export default function Assistant() {
               <div
                 className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                   msg.role === 'user'
-                    ? 'bg-slate-200'
-                    : 'bg-gradient-to-br from-brand-500 to-brand-700'
+                    ? 'bg-ink-700'
+                    : 'bg-gradient-to-br from-brand-500 to-accent-600'
                 }`}
               >
                 {msg.role === 'user' ? (
-                  <User className="w-4 h-4 text-slate-600" />
+                  <User className="w-4 h-4 text-slate-300" />
                 ) : (
                   <Sparkles className="w-4 h-4 text-white" />
                 )}
@@ -140,8 +140,8 @@ export default function Assistant() {
               <div
                 className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                   msg.role === 'user'
-                    ? 'bg-brand-600 text-white rounded-tr-sm'
-                    : 'bg-white text-slate-700 border border-slate-200/80 rounded-tl-sm shadow-soft'
+                    ? 'bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-tr-sm'
+                    : 'bg-ink-850 text-slate-200 border border-ink-700/60 rounded-tl-sm shadow-soft'
                 }`}
               >
                 <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -151,10 +151,10 @@ export default function Assistant() {
 
           {isTyping && (
             <div className="flex gap-2.5 animate-fade-in">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-accent-600 flex items-center justify-center flex-shrink-0">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <div className="bg-white border border-slate-200/80 rounded-2xl rounded-tl-sm px-4 py-3 shadow-soft flex items-center gap-1.5">
+              <div className="bg-ink-850 border border-ink-700/60 rounded-2xl rounded-tl-sm px-4 py-3 shadow-soft flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-brand-400 animate-typing" style={{ animationDelay: '0ms' }} />
                 <span className="w-2 h-2 rounded-full bg-brand-400 animate-typing" style={{ animationDelay: '200ms' }} />
                 <span className="w-2 h-2 rounded-full bg-brand-400 animate-typing" style={{ animationDelay: '400ms' }} />
@@ -165,9 +165,9 @@ export default function Assistant() {
 
         {/* Suggestions */}
         {messages.length <= 1 && !isTyping && (
-          <div className="px-4 pb-3 bg-slate-50/40">
-            <p className="flex items-center gap-1.5 text-xs font-medium text-slate-500 mb-2">
-              <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+          <div className="px-4 pb-3 bg-ink-950/40">
+            <p className="flex items-center gap-1.5 text-xs font-medium text-slate-400 mb-2">
+              <Lightbulb className="w-3.5 h-3.5 text-amber-400" />
               Try asking
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -177,9 +177,9 @@ export default function Assistant() {
                   <button
                     key={s.text}
                     onClick={() => sendMessage(s.text)}
-                    className="flex items-center gap-2.5 text-left text-sm text-slate-700 bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 hover:border-brand-300 hover:bg-brand-50/50 transition-all"
+                    className="flex items-center gap-2.5 text-left text-sm text-slate-300 bg-ink-850 border border-ink-700/60 rounded-xl px-3.5 py-2.5 hover:border-brand-500/40 hover:bg-brand-500/10 transition-all"
                   >
-                    <Icon className="w-4 h-4 text-brand-600 flex-shrink-0" />
+                    <Icon className="w-4 h-4 text-brand-400 flex-shrink-0" />
                     <span className="leading-snug">{s.text}</span>
                   </button>
                 );
@@ -191,7 +191,7 @@ export default function Assistant() {
         {/* Input */}
         <form
           onSubmit={handleSubmit}
-          className="flex items-end gap-2 p-3 border-t border-slate-100 bg-white"
+          className="flex items-end gap-2 p-3 border-t border-ink-800 bg-ink-900"
         >
           <textarea
             ref={inputRef}
@@ -205,13 +205,13 @@ export default function Assistant() {
             }}
             placeholder="Ask a study question..."
             rows={1}
-            className="flex-1 resize-none px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-400 transition-colors max-h-32"
+            className="flex-1 resize-none px-4 py-2.5 rounded-xl bg-ink-850 border border-ink-700 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500/50 transition-colors max-h-32"
             style={{ minHeight: '44px' }}
           />
           <button
             type="submit"
             disabled={!input.trim() || isTyping}
-            className="w-11 h-11 flex-shrink-0 rounded-xl bg-brand-600 text-white flex items-center justify-center hover:bg-brand-700 transition-colors shadow-soft disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-11 h-11 flex-shrink-0 rounded-xl bg-gradient-to-br from-brand-600 to-accent-600 text-white flex items-center justify-center hover:from-brand-500 hover:to-accent-500 transition-all shadow-soft disabled:opacity-40 disabled:cursor-not-allowed"
             title="Send message"
           >
             <Send className="w-4 h-4" />
@@ -219,7 +219,7 @@ export default function Assistant() {
         </form>
       </div>
 
-      <p className="text-center text-xs text-slate-400 mt-4">
+      <p className="text-center text-xs text-slate-600 mt-4">
         The assistant provides general study guidance. For specific course content, consult your materials and instructors.
       </p>
     </div>
